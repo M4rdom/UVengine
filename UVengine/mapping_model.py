@@ -47,7 +47,10 @@ class MappingModel:
         mapping_model = cls()
         mapping_model.maps = model
         return mapping_model
-
+    
+    @staticmethod
+    def create_empty_mapping_model() -> 'MappingModel':
+        return MappingModel()
 
 class MappingModelException(Exception):
     pass

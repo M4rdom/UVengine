@@ -1,10 +1,9 @@
 import os
 import json
-from typing import Any
-
 import jinja2
 
-from spl_implementation.models import Configuration, MappingModel
+from typing import Any
+from UVengine import Configuration, MappingModel
 
 
 class VEngine:
@@ -20,7 +19,8 @@ class VEngine:
         if self._configuration is None:
             raise VEngineException(f'No configuration has been loaded.')
         if self._mapping_model is None:
-            raise VEngineException(f'No mapping model has been loaded.')
+            #raise VEngineException(f'No mapping model has been loaded.')
+            self._mapping_model = MappingModel.create_empty_mapping_model()
             
         template_loader = jinja2.FileSystemLoader(searchpath=self._template_dirpath)
         environment = jinja2.Environment(loader=template_loader,

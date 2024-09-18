@@ -1,17 +1,14 @@
 import setuptools
 
-
-with open("README.md", "r") as fh:
-    long_description = fh.read()
-
-
 setuptools.setup(
     name="uvengine",
     version="1.0.0",
     author="Jose Miguel Horcas",
     author_email="horcas@uma.es",
+    maintainer="Marcos Domínguez Moreno",
+    maintainer_email="marcos105ftr@gmail.com",
     description="Variability resolution engine for UVL models and text-based implementation artifacts.",
-    long_description=long_description,
+    long_description="This package provides a variability resolution engine for UVL models and text-based implementation artifacts. It is based on Jinja2 templates and a mapping model that relates the features in the UVL model with the implementation artifacts.",
     long_description_content_type="text/markdown",
     url="https://github.com/jmhorcas/spl_implementation",
     classifiers=[
