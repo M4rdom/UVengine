@@ -1,0 +1,6 @@
+.toolbar-container {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000; /* Hace que el toolbar esté siempre visible por encima del contenido */
+}
