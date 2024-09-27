@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
+import { Component, importProvidersFrom } from '@angular/core';
 
+// Angular Material
+import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltip } from '@angular/material/tooltip';
@@ -12,7 +13,7 @@ import { RouterModule } from '@angular/router';
 import { SidenavService } from '../../Services/sidenav.service';
 import { IconRegistryService } from '../../Services/icon-registry.service';
 
-
+import { HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-header',
@@ -24,13 +25,14 @@ import { IconRegistryService } from '../../Services/icon-registry.service';
     MatTooltip,
     RouterModule,
   ],
+  providers: [HttpClient],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
   constructor(
     private sidenavService: SidenavService,
-    private iconRegistryService: IconRegistryService
+    private maticonRegistryService: IconRegistryService
   ) {
     
   }
