@@ -1,11 +1,9 @@
-<mat-sidenav-container class="sidenav-container">
-    <mat-sidenav mode="side" opened class="sidenav">
-      <!-- Componente 1 o contenido para la primera parte -->
-      <app-text-editor></app-text-editor>
-    </mat-sidenav>
-  
-    <mat-sidenav-content>
-      <!-- Componente 2 o contenido para la segunda parte -->
-      <app-uvl-configuration></app-uvl-configuration>
-    </mat-sidenav-content>
-</mat-sidenav-container>
+
+<as-split direction="horizontal">
+  <as-split-area [size]="40">
+    <app-uvl-configuration></app-uvl-configuration>
+  </as-split-area>
+  <as-split-area [size]="60">
+    <app-text-editor></app-text-editor>
+  </as-split-area>
+</as-split>

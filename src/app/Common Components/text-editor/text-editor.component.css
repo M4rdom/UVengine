@@ -1,0 +1,6 @@
+
+  
+/* Asegúrate de que el editor ocupe todo el espacio del contenedor */
+.my-code-editor {
+  flex-grow: 1;
+}

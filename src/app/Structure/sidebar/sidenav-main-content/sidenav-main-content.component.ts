@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { TextEditorComponent } from '../../../Common Components/text-editor/text-editor.component';
 import { UvlConfigurationComponent} from '../../../Common Components/uvl-configuration/uvl-configuration.component';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { LayoutModule } from '@angular/cdk/layout';
+import { AngularSplitModule } from 'angular-split';
 
 @Component({
   selector: 'app-sidenav-main-content',
@@ -10,8 +9,8 @@ import { LayoutModule } from '@angular/cdk/layout';
   imports: [
     TextEditorComponent, 
     UvlConfigurationComponent,
-    MatSidenavModule,
-    LayoutModule],
+    AngularSplitModule
+  ],
   templateUrl: './sidenav-main-content.component.html',
   styleUrl: './sidenav-main-content.component.css'
 })
