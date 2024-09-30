@@ -1,6 +1,20 @@
 .toolbar-container {
     position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000; /* Hace que el toolbar esté siempre visible por encima del contenido */
+    width: 100vw;
+    height: 10vh;
+}
+
+.header-container {
+    display: flex;
+    justify-content: flex-end; 
+    width: 100%; 
+}
+  
+.button-group {
+  display: flex;
+  gap: 10px; 
+}
+
+.dark-theme .toolbar-container {
+  background-color: #333; 
 }

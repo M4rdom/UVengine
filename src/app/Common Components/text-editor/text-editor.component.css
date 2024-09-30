@@ -1,6 +1,9 @@
+.editor-container {
+  height: 85vh; 
+  width: auto;  
+}
 
-  
-/* Asegúrate de que el editor ocupe todo el espacio del contenedor */
 .my-code-editor {
-  flex-grow: 1;
+  height: 100%;
+  width: 100%;
 }

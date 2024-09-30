@@ -1,30 +1,33 @@
-import { Component, ViewChild, ChangeDetectorRef  } from '@angular/core';
+import { Component  } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { MonacoEditorModule } from 'ngx-monaco-editor-v2';
+
+import { TextEditorOptionsComponent } from './text-editor-options/text-editor-options.component';
+
+
+// Services
+import { TextEditorContentManagerService } from '../../Services/text-editor-content-manager.service';
 
 @Component({
   selector: 'app-text-editor',
   standalone: true,
   imports: [
-    MonacoEditorModule
+    MonacoEditorModule,
+    FormsModule,
+    TextEditorOptionsComponent
   ],
   templateUrl: './text-editor.component.html',
   styleUrl: './text-editor.component.css'
 })
 
 export class TextEditorComponent {
-  constructor(private cd: ChangeDetectorRef) { }
+  constructor(private textEditorContentManagerService:TextEditorContentManagerService) { }
 
-  @ViewChild('monaco', { static: false }) monaco!: MonacoEditorModule;
-  code: string = 'Perro sanches eres el peor';
+  code: string = '';
 
-  ngAfterViewInit() {
-    
+  ngOnInit(){
+    this.textEditorContentManagerService.currentCode.subscribe(code => this.code = code);
   }
-
-  changeEditorContent() {
-    
-  }
-
 
   public editorOptions = {
     theme: 'vs-dark',

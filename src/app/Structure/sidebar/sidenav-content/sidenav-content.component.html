@@ -1,12 +1,36 @@
-<mat-list role="list">
-    <mat-list-item></mat-list-item>
-    <mat-list-item role="listitem">
-        <button mat-button matTooltip="This is a tooltip!">Dockerfile</button>
+<mat-card>
+    <mat-form-field class="example-full-width">
+      <mat-label>Search</mat-label>
+      <input matInput [(ngModel)]="searchText" placeholder="Search items">
+    </mat-form-field>
+  
+    <mat-nav-list>
+      <a mat-list-item *ngFor="let item of filteredItems()" [routerLink]="item.link">
+        {{ item.name }}
+      </a>
+    </mat-nav-list>
+  </mat-card>
+
+<mat-nav-list> 
+    <mat-list-item role="listitem" matTooltip="This is a tooltip!" routerLink="/Configuration/Dockerfile">
+        <a>Dockerfile</a>
     </mat-list-item>
-    <mat-list-item role="listitem">
-        <button mat-button matTooltip="This is a tooltip!">Nginx Configuration File</button>
+    <mat-list-item role="listitem" matTooltip="This is a tooltip!" routerLink="/Configuration">
+        <a >Nginx Configuration File</a>
     </mat-list-item>
-    <mat-list-item role="listitem">
-        <button mat-button matTooltip="This is a tooltip!">Apache Configuration File</button>
+    <mat-list-item role="listitem" matTooltip="This is a tooltip!" routerLink="/Configuration">
+        <a >Apache Configuration File</a>
     </mat-list-item>
-</mat-list>
+    <mat-list-item role="listitem" matTooltip="This is a tooltip!" routerLink="/Configuration">
+        <a >Mongodb Configuration File</a>
+    </mat-list-item>
+    <mat-list-item role="listitem" matTooltip="This is a tooltip!" routerLink="/Configuration">
+        <a >Mysql Configuration File</a>
+    </mat-list-item>
+    <mat-list-item role="listitem" matTooltip="This is a tooltip!" routerLink="/Configuration">
+        <a >phpmyAdmin Configuration File</a>
+    </mat-list-item>
+    <mat-list-item role="listitem" matTooltip="This is a tooltip!" routerLink="/Configuration">
+        <a >MongoExpress Configuration File</a>
+    </mat-list-item>
+</mat-nav-list>

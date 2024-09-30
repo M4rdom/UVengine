@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { SidebarComponent } from '../../Structure/sidebar/sidebar.component';
 
 @Component({
-  selector: 'app-auto-docker',
+  selector: 'app-configuration',
   standalone: true,
   imports: [SidebarComponent],
-  templateUrl: './auto-docker.component.html',
-  styleUrl: './auto-docker.component.css'
+  templateUrl: './configuration.component.html',
+  styleUrl: './configuration.component.css'
 })
-export class AutoDockerComponent {
+export class ConfigurationComponent {
 
 }

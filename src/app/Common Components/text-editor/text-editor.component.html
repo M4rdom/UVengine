@@ -1,9 +1,7 @@
-<p>opciones de descarga</p>
-<button (click)="changeEditorContent()">
-    Cambiar Contenido
-  </button>
 <div>
-    <ngx-monaco-editor #monaco class="my-code-editor" 
-        [options]="editorOptions" 
-    ></ngx-monaco-editor>
+    <app-text-editor-options></app-text-editor-options>
+</div>
+
+<div class="editor-container">
+    <ngx-monaco-editor #monaco class="my-code-editor" [options]="editorOptions" [(ngModel)]="code"></ngx-monaco-editor>
 </div>
