@@ -2,6 +2,9 @@ import { Component  } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MonacoEditorModule } from 'ngx-monaco-editor-v2';
 
+import { MatCardModule } from '@angular/material/card';
+
+
 import { TextEditorOptionsComponent } from './text-editor-options/text-editor-options.component';
 
 
@@ -12,6 +15,7 @@ import { TextEditorContentManagerService } from '../../Services/text-editor-cont
   selector: 'app-text-editor',
   standalone: true,
   imports: [
+    MatCardModule,
     MonacoEditorModule,
     FormsModule,
     TextEditorOptionsComponent

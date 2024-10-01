@@ -1,36 +1,13 @@
-<mat-card>
-    <mat-form-field class="example-full-width">
+<mat-card class="spaced-card">
+    <mat-form-field class="example-full-width" appearance="outline">
       <mat-label>Search</mat-label>
-      <input matInput [(ngModel)]="searchText" placeholder="Search items">
+      <input class="searchbar" matInput [(ngModel)]="searchText" placeholder="Search configurations files">
     </mat-form-field>
   
     <mat-nav-list>
-      <a mat-list-item *ngFor="let item of filteredItems()" [routerLink]="item.link">
-        {{ item.name }}
+      <a mat-list-item *ngFor="let item of filteredItems()" [matTooltip]="item.matTooltip" [routerLink]="item.routerLink" (click)="loquesea()">
+        <mat-icon class="icon" [svgIcon]="item.icon"></mat-icon><span class="item-text">{{item.name}}</span>
       </a>
     </mat-nav-list>
-  </mat-card>
+</mat-card>
 
-<mat-nav-list> 
-    <mat-list-item role="listitem" matTooltip="This is a tooltip!" routerLink="/Configuration/Dockerfile">
-        <a>Dockerfile</a>
-    </mat-list-item>
-    <mat-list-item role="listitem" matTooltip="This is a tooltip!" routerLink="/Configuration">
-        <a >Nginx Configuration File</a>
-    </mat-list-item>
-    <mat-list-item role="listitem" matTooltip="This is a tooltip!" routerLink="/Configuration">
-        <a >Apache Configuration File</a>
-    </mat-list-item>
-    <mat-list-item role="listitem" matTooltip="This is a tooltip!" routerLink="/Configuration">
-        <a >Mongodb Configuration File</a>
-    </mat-list-item>
-    <mat-list-item role="listitem" matTooltip="This is a tooltip!" routerLink="/Configuration">
-        <a >Mysql Configuration File</a>
-    </mat-list-item>
-    <mat-list-item role="listitem" matTooltip="This is a tooltip!" routerLink="/Configuration">
-        <a >phpmyAdmin Configuration File</a>
-    </mat-list-item>
-    <mat-list-item role="listitem" matTooltip="This is a tooltip!" routerLink="/Configuration">
-        <a >MongoExpress Configuration File</a>
-    </mat-list-item>
-</mat-nav-list>

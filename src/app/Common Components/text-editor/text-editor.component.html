@@ -1,7 +1,4 @@
-<div>
-    <app-text-editor-options></app-text-editor-options>
-</div>
-
-<div class="editor-container">
-    <ngx-monaco-editor #monaco class="my-code-editor" [options]="editorOptions" [(ngModel)]="code"></ngx-monaco-editor>
-</div>
+<app-text-editor-options></app-text-editor-options>
+<mat-card class="spaced-card">
+    <ngx-monaco-editor class="spaced" #monaco [options]="editorOptions" [(ngModel)]="code"></ngx-monaco-editor>
+</mat-card>

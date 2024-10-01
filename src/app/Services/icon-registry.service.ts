@@ -19,6 +19,10 @@ export class IconRegistryService {
     const icons = [
       { name: 'github-black', path: 'assets/icons/github-black.svg' },
       { name: 'github-white', path: 'assets/icons/github-white.svg' },
+      { name: 'angular', path: 'assets/icons/angular.svg' },
+      { name: 'docker', path: 'assets/icons/docker.svg' },
+      { name: 'docker-circle', path: 'assets/icons/docker-circle.svg' },
+      { name: 'nginx', path: 'assets/icons/nginx.svg' },
       // Agrega más íconos aquí
     ];
 

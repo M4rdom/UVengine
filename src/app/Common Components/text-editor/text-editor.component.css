@@ -1,9 +1,12 @@
-.editor-container {
-  height: 85vh; 
-  width: auto;  
+.spaced-card {
+  margin: 10px;
+  margin-bottom: auto;
+  height: 80vh;
 }
 
-.my-code-editor {
+.spaced {
+  margin-top: 20px; 
+  margin-left: 20px;
+  margin-right: 20px;
   height: 100%;
-  width: 100%;
 }
