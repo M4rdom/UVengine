@@ -1,10 +1,21 @@
 import { Component } from '@angular/core';
+
+import { MatTabsModule } from '@angular/material/tabs';
+
+import { UvlConfigurationOptionsComponent } from './uvl-configuration-options/uvl-configuration-options.component';
+import { JsonViewerComponent } from "../../Shared Components/json-viewer/json-viewer.component";
+
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-uvl-configuration',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [
+    MatTabsModule,
+    RouterOutlet,
+    JsonViewerComponent,
+    UvlConfigurationOptionsComponent
+],
   templateUrl: './uvl-configuration.component.html',
   styleUrl: './uvl-configuration.component.css'
 })
