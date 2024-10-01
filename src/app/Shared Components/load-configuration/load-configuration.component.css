@@ -1,0 +1,29 @@
+
+.spaced-card1 {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    height: 55vh;
+}
+.spaced-card2 {
+    margin: 10px; 
+    height: auto;
+}
+.spaced {
+    margin-top: 20px; 
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 100%;
+}
+.spaced2 {
+    margin-top: 20px; 
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 50%;
+    overflow: hidden;
+}
+
+.full-height {
+    height: 77.5vh;
+    
+}

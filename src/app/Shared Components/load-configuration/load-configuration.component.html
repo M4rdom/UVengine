@@ -1,0 +1,14 @@
+<div class="container">
+    <mat-card class="spaced-card1">
+        <ngx-monaco-editor class="spaced" #monaco2 [options]="editorOptions" [(ngModel)]="code"></ngx-monaco-editor>
+    </mat-card>
+    <mat-card class="spaced-card2"> 
+    <!-- Bytescale Upload Widget (Angular) -->
+        <upload-dropzone [options]="options"
+                         [onUpdate]="onUpdate"
+                         [onComplete]="onComplete"
+                         [width]="width"
+                         [height]="height">
+        </upload-dropzone>
+    </mat-card>
+</div>

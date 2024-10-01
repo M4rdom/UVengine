@@ -1,1 +1,12 @@
-<p>uvl-configuration-options works!</p>
+<mat-card class="spaced-card">
+    <div>
+        <button class="spaced-button" mat-flat-button >Download UVL Model</button>
+
+        <button mat-button [matMenuTriggerFor]="menu">{{SelectedVersion}}</button>
+
+        <mat-menu #menu="matMenu" >
+            <!--<button mat-menu-item *ngFor="let version of Versions">{{ version }}</button>-->
+            <button mat-menu-item>View All</button>
+        </mat-menu>
+    </div>
+</mat-card>
