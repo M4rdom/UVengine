@@ -1,13 +1,12 @@
 import { Component  } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MonacoEditorModule } from 'ngx-monaco-editor-v2';
 
 import { MatCardModule } from '@angular/material/card';
 
+import { MonacoEditorModule } from 'ngx-monaco-editor-v2';
 
 import { TextEditorOptionsComponent } from './text-editor-options/text-editor-options.component';
 import { TextEditorService } from '../../Services/Components/text-editor.service';
-import { BehaviorSubject } from 'rxjs';
 
 // Services
 
