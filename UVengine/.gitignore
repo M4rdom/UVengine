@@ -1,0 +1,20 @@
+#Ignore Python virtual environment
+.venv
+
+#Ignore Python byte code
+__pycache__
+
+#Ignore Python environment
+icecream/
+
+#Ignore 
+main.py
+
+#Ignore Build files
+build/
+
+#Ignore dist files
+dist/
+
+#Ignore egg files
+*.egg-info/
