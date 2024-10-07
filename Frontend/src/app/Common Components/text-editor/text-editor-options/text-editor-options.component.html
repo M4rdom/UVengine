@@ -1,6 +1,35 @@
 <mat-card class="spaced-card">
-    <div>
-        <button class="spaced-button" mat-flat-button (click)="copytoclipboard()">Copy to Clipboard</button>
-        <button class="spaced-button" mat-flat-button (click)="downloadproduct()">Download</button>
+    <div class="form-container">
+
+
+
+        <button class="spaced-button" mat-flat-button (click)="copytoclipboard()">
+            <mat-icon color="white" svgIcon="copy-to-clipboard"></mat-icon>
+            Copy to Clipboard
+        </button>
+
+
+
+
+        <button mat-flat-button (click)="downloadproduct()">
+            <mat-icon svgIcon="download"></mat-icon>
+            Download Product
+        </button>
+
+
+
+        <input matInput placeholder="File name" [(ngModel)]="file_name" required>
+
+
+
+        <div class="version-container">
+            <span>Change Highlight</span>
+            <button class="button-container" mat-button [matMenuTriggerFor]="menu">{{selected_language}}</button>
+
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item *ngFor="let language of Languages " (click)="changeSelectedlanguage(language)">{{language}}</button>
+            </mat-menu>
+        </div>
+           
     </div>
 </mat-card>
