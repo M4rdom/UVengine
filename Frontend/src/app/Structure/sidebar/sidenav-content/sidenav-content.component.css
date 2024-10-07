@@ -1,0 +1,24 @@
+.spaced-card {
+    margin: 10px;
+}
+
+.icon {
+    margin-top: 10px;
+}
+
+.item-text {
+    margin-left: 20px !important;
+    margin-top: flex-start !important; 
+}
+
+
+.refresh-container {
+    text-align: center;
+}
+
+
+
+.fixed-nav-list {
+    max-height: 75vh; 
+    overflow-y: auto; 
+}
