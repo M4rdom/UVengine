@@ -38,7 +38,7 @@ export class TemplateRepositoyService {
 
     const response = await firstValueFrom(this.http.get(url, { headers, responseType: 'blob' }));
 
-    this.downloadFile(response, `${template_NAME}-${version}-FeatureModel`);
+    this.downloadFile(response, `${template_NAME}-${version}-FeatureModel.uvl`);
   }
 
   private downloadFile(data: Blob, filename: string) {

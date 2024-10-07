@@ -13,6 +13,10 @@ export class TextEditorService {
   // This is the flag to show/hide the text editor
   private showCodeSource = new BehaviorSubject<boolean>(true);
   public showCode = this.showCodeSource.asObservable();
+
+  // This is the current language of the text editor
+  private languageSource = new BehaviorSubject<string>('dockerfile');
+  public currentLanguage = this.languageSource.asObservable();
   
   constructor() { }
 
@@ -30,5 +34,13 @@ export class TextEditorService {
 
   public getShowCode(): Observable<boolean> {
     return this.showCode;
+  }
+
+  public setLanguage(language: string) {
+    this.languageSource.next(language);
+  }
+
+  public getLanguage(): Observable<string> {
+    return this.currentLanguage;
   }
 }

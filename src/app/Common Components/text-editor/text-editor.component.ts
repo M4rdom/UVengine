@@ -36,12 +36,18 @@ export class TextEditorComponent {
 
 
   code: string = '';
+  language: string = 'dockerfile';
 
   ngOnInit(){
     //Subscribing to the service to get the code from the text editor
     this.textEditorService.getCode().subscribe((code: string) => {
       this.code = code;
     }); 
+
+    //Subscribing to the service to get the language from the text editor
+    this.textEditorService.getLanguage().subscribe((language: string) => {
+      this.language = language;
+    });
 
     (window as any).MonacoEnvironment = {
       getWorkerUrl: function (moduleId: any, label: string) {
@@ -58,18 +64,11 @@ export class TextEditorComponent {
 
   public editorOptions = {
     theme: 'vs-dark',
-    language: 'dockerfile',
+    language: this.language,
     wordWrap: 'on',
     automaticLayout: true,
     code: this.code
   };
   
-  public editorOptions2 = {
-    theme: 'vs-dark',
-    language: 'json',
-    wordWrap: 'on',
-    automaticLayout: true,
-    code: this.code
-  };
 
 }

@@ -10,10 +10,8 @@ import { ConfigurationService } from '../../../Services/configuration.service';
 import { SidenavService } from '../../../Services/Components/sidenav.service';
 import { TemplateRepositoyService } from '../../../Services/Backend/template-repositoy.service';
 import { IconService } from '../../../Services/icon.service';
-import { ResolveVariabilityService } from '../../../Services/Backend/resolve-variability.service';
 import { JsonConfigurationService } from '../../../Services/Components/json-configuration.service';
 
-import { firstValueFrom } from 'rxjs';
 @Component({
   selector: 'app-uvl-configuration-options',
   standalone: true,
@@ -36,7 +34,6 @@ export class UvlConfigurationOptionsComponent {
     private sidenavService: SidenavService,
     private uvlApiService: TemplateRepositoyService,
     private iconRegistryService:IconService,
-    private resolveVariabilityService: ResolveVariabilityService,
     private jsonConfigurationService: JsonConfigurationService,
   ) {}
 

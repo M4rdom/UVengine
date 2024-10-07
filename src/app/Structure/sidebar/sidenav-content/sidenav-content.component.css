@@ -22,3 +22,7 @@
     max-height: 75vh; 
     overflow-y: auto; 
 }
+
+.footer {
+    margin-top: auto;
+  }

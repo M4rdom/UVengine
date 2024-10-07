@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material/icon';
+import path from 'path';
 
 @Injectable({
   providedIn: 'root'
@@ -25,9 +26,11 @@ export class IconService {
       { name: 'nginx', path: 'assets/icons/nginx.svg' },
       { name: 'icecream',path : 'assets/icons/icecream.svg'},
       { name: 'apache',path : 'assets/icons/apache.svg'},
+      { name: 'apache_alternative',path : 'assets/icons/apache_alternative.svg'},
       { name: 'unknowndice',path : 'assets/icons/unknowndice.svg'},
       // Agrega más íconos aquí
-      { name: 'apache_alternative',path : 'assets/icons/apache_alternative.svg'},
+      { name:'copy-to-clipboard',path : 'assets/icons/copy-to-clipboard.svg'},
+      { name:'download',path : 'assets/icons/download.svg'},
       
     ];
 
