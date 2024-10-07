@@ -61,7 +61,7 @@ export class SidenavContentComponent {
 
   templates = [{ name: 'Dockerfile' }];
 
-  filteredItems() {
+  filteredItems(): { name: string }[] {
     return this.templates.filter(template => 
       template.name.toLowerCase().includes(this.searchText.toLowerCase())
     );
