@@ -1,12 +1,25 @@
 <mat-card class="spaced-card">
-    <div>
-        <button class="spaced-button" mat-flat-button >Download UVL Model</button>
+    <div class="button-container">
+        <div class="text-container">
+            <button mat-icon-button class="example-icon" 
+                    aria-label="Example icon-button with menu icon" 
+                    matTooltip="This is a tooltip!"
+                    (click)="toggleSidenav()" 
+                    routerLink="/Configuration">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <mat-icon [svgIcon]="SelectedIcon">dd</mat-icon>
+            <div class="SelectedTemplate">{{SelectedTemplate}}</div>
+        </div>
+        
+        <div class="version-container">
+            <span>Version:</span>
+            <button class="button-container" mat-button [matMenuTriggerFor]="menu">{{SelectedVersion}}</button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item *ngFor="let version of Versions" (click)="changeSeletedVersion(version)">{{ version }}</button>
+            </mat-menu>
+        </div>
 
-        <button mat-button [matMenuTriggerFor]="menu">{{SelectedVersion}}</button>
-
-        <mat-menu #menu="matMenu" >
-            <!--<button mat-menu-item *ngFor="let version of Versions">{{ version }}</button>-->
-            <button mat-menu-item>View All</button>
-        </mat-menu>
+        <button class="spaced-button" mat-flat-button (click)="downloaduvlModel()">Download UVL Model</button>
     </div>
 </mat-card>

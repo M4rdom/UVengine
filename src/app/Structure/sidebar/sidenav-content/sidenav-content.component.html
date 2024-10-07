@@ -4,10 +4,19 @@
       <input class="searchbar" matInput [(ngModel)]="searchText" placeholder="Search configurations files">
     </mat-form-field>
   
-    <mat-nav-list>
-      <a mat-list-item *ngFor="let item of filteredItems()" [matTooltip]="item.matTooltip" [routerLink]="item.routerLink" (click)="loquesea()">
-        <mat-icon class="icon" [svgIcon]="item.icon"></mat-icon><span class="item-text">{{item.name}}</span>
+    <mat-nav-list class="fixed-nav-list">
+      <a mat-list-item *ngFor="let item of filteredItems()" [routerLink]="'/Configuration'" [queryParams]='{"template":item.name}' (click)="closeSidenav()">
+        <mat-icon class="icon" [svgIcon]="iconCalculator(item.name)"></mat-icon><span class="item-text">{{item.name}}</span>
       </a>
     </mat-nav-list>
-</mat-card>
 
+
+</mat-card>
+<mat-card class="spaced-card">
+    <!-- Refresh Button -->
+    <div class="refresh-container">
+      <button mat-button (click)="refresh()">
+        <mat-icon>refresh</mat-icon> Reload
+      </button>
+    </div>
+</mat-card>

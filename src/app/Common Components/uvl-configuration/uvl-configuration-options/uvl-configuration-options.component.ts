@@ -1,27 +1,85 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import { MatCard } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
 
+import { ConfigurationService } from '../../../Services/configuration.service';
+import { SidenavService } from '../../../Services/Components/sidenav.service';
+import { TemplateRepositoyService } from '../../../Services/Backend/template-repositoy.service';
+import { IconService } from '../../../Services/icon.service';
+import { ResolveVariabilityService } from '../../../Services/Backend/resolve-variability.service';
+import { JsonConfigurationService } from '../../../Services/Components/json-configuration.service';
+
+import { firstValueFrom } from 'rxjs';
 @Component({
   selector: 'app-uvl-configuration-options',
   standalone: true,
   imports: [
+    CommonModule,
     MatCard,
     MatButtonModule,
+    MatIconModule,
     MatMenuModule
   ],
   templateUrl: './uvl-configuration-options.component.html',
   styleUrl: './uvl-configuration-options.component.css'
 })
-export class UvlConfigurationOptionsComponent {
-  SelectedVersion = 'Latest';
-  Versions = ['Latest', '1.0.0', '0.9.0', '0.8.0', '0.7.0', '0.6.0', '0.5.0', '0.4.0', '0.3.0', '0.2.0', '0.1.0'];
 
-  menuItems = [
-    { name: 'Item 1' },
-    { name: 'Item 2' },
-    // Agrega más elementos según sea necesario
-  ];
+export class UvlConfigurationOptionsComponent {
+
+
+  constructor(
+    private configurationService: ConfigurationService,
+    private sidenavService: SidenavService,
+    private uvlApiService: TemplateRepositoyService,
+    private iconRegistryService:IconService,
+    private resolveVariabilityService: ResolveVariabilityService,
+    private jsonConfigurationService: JsonConfigurationService,
+  ) {}
+
+  ngOnInit() {
+    this.configurationService.getSelectedVersion().subscribe((version) => {
+      this.SelectedVersion = version;
+    });
+
+    // Get the selected configuration from the service using Observable and subscribe to it
+    this.configurationService.getConfiguration().subscribe((template) => {
+      this.SelectedTemplate = template;
+      this.SelectedIcon = this.iconCalculator(template);
+    });
+    // Get the available versions from the service using Observable and subscribe to it
+    this.configurationService.getAvailableVersions().subscribe((versions) => {
+      this.Versions = versions;
+    });
+  }
+
+  downloaduvlModel() {
+    // Template Name ---> this.SelectedTemplate
+    // Version Name ---> this.SelectedVersion
+    this.uvlApiService.downloadFeatureModel(this.SelectedTemplate, this.SelectedVersion);
+  }
+
+  async changeSeletedVersion(newVersion: string) {
+      this.configurationService.setSelectedVersion(newVersion);
+      this.SelectedVersion = newVersion;
+      this.jsonConfigurationService
+      
+  }
+
+  public SelectedVersion = 'Latest';
+  SelectedTemplate = '';
+  SelectedIcon = '';
+  Versions = [''];
+
+  public toggleSidenav() {
+    this.sidenavService.toggle();
+  }
+
+  public iconCalculator(template_NAME:string):string {
+    return this.iconRegistryService.iconCalculatorSidenav(template_NAME);
+  }
+  
 }

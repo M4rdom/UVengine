@@ -3,7 +3,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSidenav } from '@angular/material/sidenav';
 import { SidenavContentComponent } from "./sidenav-content/sidenav-content.component";
 import { SidenavMainContentComponent } from "./sidenav-main-content/sidenav-main-content.component";
-import { SidenavService } from '../../Services/sidenav.service';
+import { SidenavService } from '../../Services/Components/sidenav.service';
 
 @Component({
   selector: 'app-sidebar',

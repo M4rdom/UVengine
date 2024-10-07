@@ -1,5 +1,5 @@
 {
-  "name": "autodocker",
+  "name": "Frontend",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:Autodocker": "node dist/autodocker/server/server.mjs"
+    "serve:ssr:Frontend": "node dist/Frontend/server/server.mjs"
   },
   "private": true,
   "dependencies": {
@@ -23,12 +23,10 @@
     "@angular/platform-server": "^18.2.0",
     "@angular/router": "^18.2.0",
     "@angular/ssr": "^18.2.6",
-    "@bytescale/upload-widget": "^4.27.0",
-    "@bytescale/upload-widget-angular": "^9.15.0",
     "@material/web": "^2.2.0",
     "angular-split": "^18.0.0-beta.1",
     "express": "^4.18.2",
-    "monaco-editor": "^0.52.0",
+    "monaco-editor": "^0.50.0",
     "ngx-json-viewer": "^3.2.1",
     "ngx-monaco-editor-v2": "^18.1.0",
     "rxjs": "~7.8.0",

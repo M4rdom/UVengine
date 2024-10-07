@@ -5,11 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { MatCard } from '@angular/material/card';
 
 
-import { UploadWidgetResult, UploadWidgetOnUpdateEvent } from '@bytescale/upload-widget';
-import { UploadWidgetModule } from '@bytescale/upload-widget-angular';
 import { MonacoEditorModule } from 'ngx-monaco-editor-v2';
 
-import { JsonConfigurationService } from '../../Services/json-configuration.service';
+import { JsonConfigurationService } from '../../Services/Components/json-configuration.service';
 
 @Component({
   selector: 'app-load-configuration',
@@ -17,7 +15,6 @@ import { JsonConfigurationService } from '../../Services/json-configuration.serv
   imports: [
     FormsModule,
     MatCard,
-    UploadWidgetModule,
     MonacoEditorModule
     
   ],
@@ -29,35 +26,6 @@ export class LoadConfigurationComponent {
   constructor(private jsonConfigurationService: JsonConfigurationService) {
 
   }
-
-  options = {
-    apiKey: 'free', 
-    multi: false,
-    showFinishButton: true,
-  };
-
-  onUpdate = (event: UploadWidgetOnUpdateEvent) => {
-    console.log(JSON.stringify(event));
-  };
-
-  onComplete = (files: UploadWidgetResult[]) => {
-    alert(files.map((x) => x.fileUrl).join('\n'));
-  };
-  width = '200px';
-  height = '200px';
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   private _code: string = '';
 
@@ -84,8 +52,10 @@ export class LoadConfigurationComponent {
     language: 'json',
     wordWrap: 'off',
     automaticLayout: true,
-    code: this.code
-    
+    code: this.code,
+    minimap: {
+      enabled: false // Desactiva el minimap si está activado
+    }
   };
 
 }

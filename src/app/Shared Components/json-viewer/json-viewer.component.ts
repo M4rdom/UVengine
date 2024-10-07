@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
-
 import { MatCard } from '@angular/material/card';
-
 
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
 
-import { JsonConfigurationService } from '../../Services/json-configuration.service';
+import { JsonConfigurationService } from '../../Services/Components/json-configuration.service';
+import { ResolveVariabilityService } from '../../Services/Backend/resolve-variability.service';
+
 @Component({
   selector: 'app-json-viewer',
   standalone: true,
@@ -20,19 +20,27 @@ import { JsonConfigurationService } from '../../Services/json-configuration.serv
 export class JsonViewerComponent {
   
   json  = {
-    "Did you load a json?":false
+    "Not valid Json, please Insert a Valid Json file":":)"
   };
 
   constructor(
-    private jsonConfigurationService: JsonConfigurationService
+    private jsonConfigurationService: JsonConfigurationService,
+    private resolveVariabilityService: ResolveVariabilityService
   ) 
     {
-    jsonConfigurationService.currentStringValue.subscribe((value) => {
+      this.loadJson();
+  }
+
+  loadJson() {
+    this.jsonConfigurationService.currentStringValue.subscribe((configuration) => {
       try {
-        this.json = JSON.parse(value);
+        this.json = JSON.parse(configuration); // Means it is a valid JSON otherwise it will throw an error
         console.log("JSON:", this.json);
+
+        this.resolveVariabilityService.resolveVariability(configuration);
+
       } catch (error) {
-        this.json = {"Did you load a json?":false};
+        this.json = {"Not valid Json, please Insert a Valid Json file":":)"};
       }
     });
   }

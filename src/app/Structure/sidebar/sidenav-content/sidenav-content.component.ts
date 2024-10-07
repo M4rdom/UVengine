@@ -8,13 +8,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatIcon } from '@angular/material/icon';
-
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
+
 //Servico
-import { SidenavService } from '../../../Services/sidenav.service';
-import { IconRegistryService } from '../../../Services/icon-registry.service';
+import { SidenavService } from '../../../Services/Components/sidenav.service';
+import { IconService } from '../../../Services/icon.service';
+import { ConfigurationService } from '../../../Services/configuration.service';
+
+
 
 @Component({
   selector: 'app-sidenav-content',
@@ -35,28 +38,43 @@ import { IconRegistryService } from '../../../Services/icon-registry.service';
   styleUrl: './sidenav-content.component.css'
 })
 export class SidenavContentComponent {
+  refresh() { 
+    this.configurationService.reloadAvailabeTemplates();
+  }
   constructor(
     private sidenavService:SidenavService,
-    private iconRegistryService:IconRegistryService
-  ){}
+    private iconRegistryService:IconService,
+    private configurationService:ConfigurationService
+  ){
+    
+  }
 
+  ngOnInit(){
+    //Nos sub
+    this.configurationService.getAvailableTemplates().subscribe((templates) => {
+      this.templates = templates.map(template => ({ name: template }));
+    });
+
+
+  }
   searchText: string = ''; 
-  items = [
-    { name: 'Dockerfile', routerLink: '/Configuration/Dockerfile', matTooltip:"This is a tooltip!" ,icon:"docker"},
-    { name: 'Nginx Configuration File', routerLink: '/Configuration', matTooltip:"This is a tooltip!" ,icon:"nginx"},
-    { name: 'Apache Configuration File', routerLink: '/Configuration', matTooltip:"This is a tooltip!" ,icon:"github-black"},
-    { name: 'Mongo Configuration File', routerLink: '/Configuration' , matTooltip:"This is a tooltip!",icon:"github-black"},
-  ];
 
-  // Filtrar los elementos según el texto de búsqueda
+  templates = [{ name: 'Dockerfile' }];
+
   filteredItems() {
-    return this.items.filter(item => 
-      item.name.toLowerCase().includes(this.searchText.toLowerCase())
+    return this.templates.filter(template => 
+      template.name.toLowerCase().includes(this.searchText.toLowerCase())
     );
   }
 
-  loquesea(){
+  closeSidenav(){
     this.sidenavService.close();
   }
+
+  iconCalculator(templateName:string):string{
+    return this.iconRegistryService.iconCalculator1(templateName);
+
+  }
+
 
 }
