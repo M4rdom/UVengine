@@ -1,2 +1,3 @@
-Flask=3.0.3
-uvengine=1.0.0
+Flask==3.0.3
+uvengine==1.0.0
+flask_cors==5.0.0
