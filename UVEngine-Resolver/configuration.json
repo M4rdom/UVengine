@@ -1,0 +1,11 @@
+{
+    "template": "Dockerfile",
+    "version": "Latest",
+    "file": "Dockerfile_fm.uvl",
+    "config": {
+        "Frontend": true,
+        "Angular": true,
+        "WebServer_Frontend": true,
+        "Nginx_WebServer_Frontend": true
+    }
+}
