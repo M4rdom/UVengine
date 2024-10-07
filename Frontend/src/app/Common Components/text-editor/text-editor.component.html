@@ -1,4 +1,5 @@
 <app-text-editor-options></app-text-editor-options>
+
 <mat-card class="spaced-card">
     <ngx-monaco-editor class="spaced" #monaco [options]="editorOptions" [(ngModel)]="code" (ngModelChange)="onCodeChange($event)"></ngx-monaco-editor>
 </mat-card>

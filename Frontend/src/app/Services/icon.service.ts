@@ -31,6 +31,7 @@ export class IconService {
       // Agrega más íconos aquí
       { name:'copy-to-clipboard',path : 'assets/icons/copy-to-clipboard.svg'},
       { name:'download',path : 'assets/icons/download.svg'},
+      { name:'paste-from-clipboard',path : 'assets/icons/paste-from-clipboard.svg'},
       
     ];
 
