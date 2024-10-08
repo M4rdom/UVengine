@@ -52,7 +52,7 @@ export class HeaderComponent {
   }
 
   click_shortcut() {
-    if(this.router.url == '/Configuration') {
+    if(this.router.url == '/Configuration' || this.router.url == '/Configuration?template=dockerfile' || this.router.url == '/Configuration?template=.dockerignore') {
       this.sidenavService.close();
     }
   }
