@@ -30,9 +30,15 @@ import { IconService } from '../../../Services/icon.service';
 })
 export class TextEditorOptionsComponent {
 
+  //Show the text editor And subcribe to to the service to get the code from the text editor
+  show_Text_Editor = false;
 
   file_name: string ='';
+
+  //Selected language in the text editor by default is dockerfile
   selected_language: string = 'dockerfile';
+
+  //List of languages that the text editor supports
   Languages = ['dockerfile', 'json'];
 
   constructor(
@@ -43,10 +49,23 @@ export class TextEditorOptionsComponent {
   ) { }
 
   async ngOnInit() {
+
+    this.configurationService.getConfiguration().subscribe((configuration) => {
+      if (configuration !== '') {
+        this.show_Text_Editor = true;
+      }
+    });
+
     this.file_name = await firstValueFrom(this.configurationService.getConfiguration());
   }
 
   async copytoclipboard() {
+    if (!this.show_Text_Editor) {
+      this.snackBar.open('No code to copy', 'Close', {duration: 2000});
+      return;
+    }
+
+
     if(navigator.clipboard){
       const code = await firstValueFrom(this.textEditorService.getCode());
       navigator.clipboard.writeText(code).then(() => {
@@ -60,6 +79,10 @@ export class TextEditorOptionsComponent {
     }
 
     async downloadproduct() {
+      if (!this.show_Text_Editor) {
+        this.snackBar.open('There`s anything to Download', 'Close', {duration: 2000});
+        return;
+      }
       var fileName = 'final_product.txt';
 
       if (this.file_name) {

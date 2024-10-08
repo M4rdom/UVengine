@@ -1,5 +1,15 @@
 <app-text-editor-options></app-text-editor-options>
-
 <mat-card class="spaced-card">
-    <ngx-monaco-editor class="spaced" #monaco [options]="editorOptions" [(ngModel)]="code" (ngModelChange)="onCodeChange($event)"></ngx-monaco-editor>
+    @if (show_Text_Editor) {
+        <ngx-monaco-editor class="spaced" #monaco [options]="editorOptions" [(ngModel)]="code" (ngModelChange)="onCodeChange($event)"></ngx-monaco-editor>
+    }
+    @else {
+        <div class="column-container">
+            <img src="assets/images/Desert-Material-Desing.png" alt="Logo">
+            <span style="font-family: 'Roboto'; font-size: larger;">No Template Selected.</span>
+            <button mat-flat-button (click)="selectTemplate()">
+                Select Template
+            </button>
+        </div>
+    }
 </mat-card>

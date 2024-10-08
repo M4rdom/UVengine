@@ -2,19 +2,23 @@ import { Component  } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 import { MonacoEditorModule } from 'ngx-monaco-editor-v2';
 
 import { TextEditorOptionsComponent } from './text-editor-options/text-editor-options.component';
-import { TextEditorService } from '../../Services/Components/text-editor.service';
 
 // Services
+import { TextEditorService } from '../../Services/Components/text-editor.service';
+import { ConfigurationService } from '../../Services/configuration.service';
+import { SidenavService } from '../../Services/Components/sidenav.service';
 
 @Component({
   selector: 'app-text-editor',
   standalone: true,
   imports: [
     MatCardModule,
+    MatButtonModule,
     MonacoEditorModule,
     FormsModule,
     TextEditorOptionsComponent
@@ -24,20 +28,33 @@ import { TextEditorService } from '../../Services/Components/text-editor.service
 })
 
 export class TextEditorComponent {
+
   
   onCodeChange($event: any) {
     this.textEditorService.setCode(this.code);
   }
+
+  selectTemplate() {
+    this.sidenavService.open();
+  }
   
   constructor(
-    private textEditorService: TextEditorService
+    private textEditorService: TextEditorService,
+    private configurationService: ConfigurationService,
+    private sidenavService: SidenavService
   ) { }
 
-
+  show_Text_Editor = false;
   code: string = '';
   language: string = 'dockerfile';
 
   ngOnInit(){
+    this.configurationService.getConfiguration().subscribe((configuration) => {
+      if (configuration !== '') {
+        this.show_Text_Editor = true;
+      }
+    });
+
     //Subscribing to the service to get the code from the text editor
     this.textEditorService.getCode().subscribe((code: string) => {
       this.code = code;
