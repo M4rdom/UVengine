@@ -35,7 +35,13 @@
 
 .toolbar-center {
   flex-grow: 1; /* Permite que el grupo central ocupe el espacio disponible */
-  justify-content: center; /* Centra los botones del grupo central */
+  justify-content: center; /* Asegura que el grupo central esté centrado */
+  display: flex; /* Asegura que el contenido sea flexible */
+  margin-right: 180px;
+}
+
+.center-button {
+  margin: auto; /* Asegura que el botón se centre en su contenedor */
 }
 
 .toolbar-right {
