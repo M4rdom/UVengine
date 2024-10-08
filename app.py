@@ -34,6 +34,11 @@ def Resolver():
         data = request.get_json()
         template:str = data.get('template')
         version:str = data.get('version')
+
+        if not template:
+            return 'Template is required', 400
+        if not version:
+            return 'Version is required', 400
        
 
 
@@ -52,16 +57,19 @@ def Resolver():
         # Verificar que los archivos existan
 
         if not template_path.exists():
-            return f'Template file not found: {template_path}', 404
+            return f'Template file not found: {template_path}', 400
         if not mapping_model_path.exists():
-            return f'Mapping model file not found: {mapping_model_path}', 404
+            return f'Mapping model file not found: {mapping_model_path}', 400
 
         vengine = UVengine.VEngine()
         vengine.load_configuration(configuration_path)
         vengine.load_mapping_model(mapping_model_path)
         vengine.load_template(template_path)
 
-        result = vengine.resolve_variability()
+        try:
+            result = vengine.resolve_variability()
+        except Exception as e:
+            return "No se ha podido resolver:"+ str(e), 500
 
         response = {
             "result": result
