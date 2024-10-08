@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { environment } from '../../../environments/environment';
 import { ConfigurationService } from '../configuration.service';
+import { LoadingStatusService } from '../loading-status.service';
 import { TextEditorService } from '../Components/text-editor.service';
 
 import { firstValueFrom } from 'rxjs';
@@ -13,7 +14,8 @@ export class ResolveVariabilityService {
   constructor(
     private http: HttpClient,
     private configurationService: ConfigurationService,
-    private textEditorService: TextEditorService
+    private textEditorService: TextEditorService,
+    private loadingStatusService: LoadingStatusService
   ) {}
 
 
@@ -22,11 +24,14 @@ export class ResolveVariabilityService {
   }
 
   async resolveVariability(configuration:string) {
+    this.loadingStatusService.setLoadingProduct(true);
+
     var json = JSON.parse(configuration);
     const config = json.config
 
     if (json.config === undefined) {
       this.textEditorService.setCode("No configuration found on Load Configuration");
+      this.loadingStatusService.setLoadingProduct(false);
       return 
     }
       
@@ -46,10 +51,19 @@ export class ResolveVariabilityService {
     };
 
     // Aquí se espera recibir un string como respuesta
-    const response = await firstValueFrom(this.http.post<any>(url, json, { headers }));
-    //alert(response.result);
-    this.textEditorService.setCode(response.result);
+    try {
+      const response = await firstValueFrom(this.http.post<any>(url, json, { headers }));
+      // Maneja la respuesta aquí
+      this.textEditorService.setCode(response.result);
+    } catch (error) {
+      // Maneja el error aquí
+      this.textEditorService.setCode("Error occurred while resolving variability\n" + error);
+      console.error('Error occurred:', error);
+    }
 
+   
+
+    this.loadingStatusService.setLoadingProduct(false);
   }
 
 

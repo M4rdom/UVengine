@@ -12,4 +12,8 @@
             </button>
         </div>
     }
+
+    @if (show_loading_spinner) {
+        <app-text-spinner-loading class="loading-overlay"></app-text-spinner-loading>
+    }
 </mat-card>

@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, first, firstValueFrom, Observable } from 'rxjs';
+
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { TemplateRepositoyService } from './Backend/template-repositoy.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +31,8 @@ export class ConfigurationService {
 
 
   constructor(
-    private uvlApiService: TemplateRepositoyService
+    private uvlApiService: TemplateRepositoyService,
+    private snackBar: MatSnackBar
   ) {
     
   }
@@ -62,8 +66,14 @@ export class ConfigurationService {
     return this.availableTemplates$;
   }
 
-  reloadAvailabeTemplates(){
-    this.LoadAvailableTemplates();
+  async reloadAvailabeTemplates(){
+    const response = await this.LoadAvailableTemplates();
+    const list= await firstValueFrom(this.getAvailableTemplates())
+    if ( list.length == 0){
+      this.snackBar.open('Error No Templates found', 'Close', {duration: 2000});
+    } else {
+      this.snackBar.open('Templates loaded Succesfully', 'Close', {duration: 2000});
+    }
   }
 
   setSelectedVersion(version: string) {

@@ -7,11 +7,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MonacoEditorModule } from 'ngx-monaco-editor-v2';
 
 import { TextEditorOptionsComponent } from './text-editor-options/text-editor-options.component';
+import { TextSpinnerLoadingComponent } from './text-spinner-loading/text-spinner-loading.component';
 
 // Services
 import { TextEditorService } from '../../Services/Components/text-editor.service';
 import { ConfigurationService } from '../../Services/configuration.service';
 import { SidenavService } from '../../Services/Components/sidenav.service';
+import { LoadingStatusService } from '../../Services/loading-status.service';
 
 @Component({
   selector: 'app-text-editor',
@@ -21,7 +23,8 @@ import { SidenavService } from '../../Services/Components/sidenav.service';
     MatButtonModule,
     MonacoEditorModule,
     FormsModule,
-    TextEditorOptionsComponent
+    TextEditorOptionsComponent,
+    TextSpinnerLoadingComponent
   ],
   templateUrl: './text-editor.component.html',
   styleUrl: './text-editor.component.css'
@@ -41,14 +44,21 @@ export class TextEditorComponent {
   constructor(
     private textEditorService: TextEditorService,
     private configurationService: ConfigurationService,
-    private sidenavService: SidenavService
+    private sidenavService: SidenavService,
+    private loadingStatusService: LoadingStatusService
   ) { }
 
-  show_Text_Editor = false;
+  show_Text_Editor :boolean= false;
+  show_loading_spinner :boolean= false;
   code: string = '';
   language: string = 'dockerfile';
 
+
   ngOnInit(){
+    this.loadingStatusService.getLoadingProduct().subscribe((status) => {
+      this.show_loading_spinner = status;
+    });
+
     this.configurationService.getConfiguration().subscribe((configuration) => {
       if (configuration !== '') {
         this.show_Text_Editor = true;

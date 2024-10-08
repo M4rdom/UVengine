@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
+
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
 
+import { LoadingStatusService } from '../loading-status.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,12 +14,21 @@ export class TemplateRepositoyService {
 
   constructor(
     private http: HttpClient,
+    private loadingStatusService: LoadingStatusService,
   ) {}
 
   async getTempalatesList(): Promise<string[]>{
     const url = `${environment.REPOSITORY_MANAGER_URL}/templates`;
+    try{
+      
     const response = await firstValueFrom(this.http.get<string[]>(url));
-    return response;
+    this.loadingStatusService.setLoadingTemplatesList(false);
+
+      return response;
+    }catch(error){
+      this.loadingStatusService.setLoadingTemplatesList(false);
+      return [];
+    }
   }
 
   async getTemplateVersions(template_NAME: string): Promise<string[]> {

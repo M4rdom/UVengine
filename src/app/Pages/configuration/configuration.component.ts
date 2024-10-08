@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 
 //Servicces
 import { ConfigurationService } from '../../Services/configuration.service';
+import { LoadingStatusService } from '../../Services/loading-status.service';
 
 @Component({
   selector: 'app-configuration',
@@ -20,6 +21,7 @@ export class ConfigurationComponent {
 
   constructor(
     private configurationService: ConfigurationService,
+    private loadingStatusService: LoadingStatusService,
     private route: ActivatedRoute
 
   ) {
@@ -40,6 +42,8 @@ export class ConfigurationComponent {
 
   ngOnDestroy() {
     this.configurationService.clearConfiguration();
+    this.loadingStatusService.setLoadingProduct(false);
+    this.loadingStatusService.setLoadingTemplatesList(false);
 
   }
 

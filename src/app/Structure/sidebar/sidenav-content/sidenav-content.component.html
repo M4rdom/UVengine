@@ -13,20 +13,37 @@
     </mat-nav-list>
   </mat-card>
 
+
+
+
+
+
   <mat-card class="spaced-card">
     <!-- Refresh Button -->
     <div class="refresh-container">
       <button mat-button (click)="refresh()">
         <mat-icon>refresh</mat-icon> Reload
       </button>
+      @if (loading_templates) {
+        <mat-spinner diameter="15"></mat-spinner> <!-- Adjust the diameter as needed -->
+      }
+      
     </div>
+
   </mat-card>
+
+
+
+
+
+
 
   <mat-card class="spaced-card footer">
     Check available templates on 
     <a href="https://github.com/M4rdom/Templates" >
       <button mat-button>
         Github
+        
         <mat-icon [svgIcon]="'github-black'"></mat-icon>
       </button>
     </a>
