@@ -28,8 +28,5 @@ export class SidebarComponent {
     this.sidenavService.setSidenav(this.sidenav);
   }
   
-  openSidenav(sidenav: MatSidenav) {
-    sidenav.open();
-  }
 
 }
