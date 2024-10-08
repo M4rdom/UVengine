@@ -57,7 +57,7 @@ export class ResolveVariabilityService {
       this.textEditorService.setCode(response.result);
     } catch (error) {
       // Maneja el error aquí
-      this.textEditorService.setCode("Error occurred while resolving variability\n" + error);
+      this.textEditorService.setCode("Error occurred while resolving variability\n");
       console.error('Error occurred:', error);
     }
 
