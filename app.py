@@ -11,15 +11,21 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+URL_UVENGINE_RESOLVER = "http://localhost:5001"
 URL_REPOSITORY_MANAGER = "http://localhost:5000"
+URL_FRONTEND = "http://localhost:4200"  
 
 CURRENT_PATH = Path(__file__).resolve().parent
 
 
-
-@app.route('/')
+@app.route('/status')
 def hello_world():
-    return 'Hello, World!'
+    return 'UVLEngine resolver is running'
+
+@app.route('/update-repo')
+def update():
+    download_and_extract_file()
+    return 'Templates updated'
 
 @app.route('/Resolver', methods=['POST'])
 def Resolver():
@@ -30,8 +36,7 @@ def Resolver():
         version:str = data.get('version')
        
 
-        print(template)
-        print(version)
+
         json_filename = 'configuration.json'
         json_filepath = CURRENT_PATH / json_filename
         with open(json_filepath, 'w') as json_file:
@@ -41,6 +46,9 @@ def Resolver():
         mapping_model_path = CURRENT_PATH/'Templates'/'Templates-main'/template/version/'Mapping Model'/f'{template}_mapping_model.csv'
         template_path = CURRENT_PATH/'Templates'/'Templates-main'/template/version/"Jinja Templates"/f'{template}.jinja'
 
+        #print(f'Configuration path: {configuration_path}')
+        #print(f'Mapping model path: {mapping_model_path}')
+        #print(f'Template path: {template_path}')
         # Verificar que los archivos existan
 
         if not template_path.exists():
@@ -87,7 +95,6 @@ def download_and_extract_file():
     
     print(f"File extracted to {templates_dir}")
     
-
 
 if __name__ == '__main__':
     download_and_extract_file()
