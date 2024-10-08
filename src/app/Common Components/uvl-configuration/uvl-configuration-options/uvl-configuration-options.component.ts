@@ -5,6 +5,7 @@ import { MatCard } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { ConfigurationService } from '../../../Services/configuration.service';
 import { SidenavService } from '../../../Services/Components/sidenav.service';
@@ -35,6 +36,7 @@ export class UvlConfigurationOptionsComponent {
     private uvlApiService: TemplateRepositoyService,
     private iconRegistryService:IconService,
     private jsonConfigurationService: JsonConfigurationService,
+    private snakbar: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -54,6 +56,10 @@ export class UvlConfigurationOptionsComponent {
   }
 
   downloaduvlModel() {
+    if (this.SelectedTemplate === '') {
+      this.snakbar.open('Please select a template before Download', 'Close', {duration: 2000});
+      return;
+    }
     // Template Name ---> this.SelectedTemplate
     // Version Name ---> this.SelectedVersion
     this.uvlApiService.downloadFeatureModel(this.SelectedTemplate, this.SelectedVersion);
@@ -66,7 +72,7 @@ export class UvlConfigurationOptionsComponent {
       
   }
 
-  public SelectedVersion = 'Latest';
+  SelectedVersion = 'Latest';
   SelectedTemplate = '';
   SelectedIcon = '';
   Versions = [''];

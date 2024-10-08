@@ -23,5 +23,6 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './uvl-configuration.component.css'
 })
 export class UvlConfigurationComponent {
+  
 
 }
