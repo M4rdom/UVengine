@@ -38,6 +38,7 @@ import { ConfigurationService } from '../../../Services/configuration.service';
   styleUrl: './sidenav-content.component.css'
 })
 export class SidenavContentComponent {
+
   refresh() { 
     this.configurationService.reloadAvailabeTemplates();
   }
@@ -50,7 +51,7 @@ export class SidenavContentComponent {
   }
 
   ngOnInit(){
-    //Nos sub
+    
     this.configurationService.getAvailableTemplates().subscribe((templates) => {
       this.templates = templates.map(template => ({ name: template }));
     });
@@ -68,7 +69,7 @@ export class SidenavContentComponent {
   }
 
   closeSidenav(){
-    this.sidenavService.close();
+    this.sidenavService.toggle();
   }
 
   iconCalculator(templateName:string):string{

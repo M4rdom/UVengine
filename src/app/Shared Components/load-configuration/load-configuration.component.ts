@@ -31,7 +31,7 @@ export class LoadConfigurationComponent {
   constructor(
     private jsonConfigurationService: JsonConfigurationService,
     private snakBar: MatSnackBar,
-    private iconService: IconService
+    private iconService: IconService//Do not remove this line
   ) {
 
   }

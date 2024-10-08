@@ -6,9 +6,6 @@ import { AboutComponent } from './Pages/about/about.component';
 import { HelpComponent } from './Pages/help/help.component';
 import { ConfigurationComponent } from './Pages/configuration/configuration.component';
 
-//Paginas de configuración
-import { DockerfileComponent } from './Pages/configuration/dockerfile/dockerfile.component';
-import { NginxComponent } from './Pages/configuration/nginx/nginx.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent},

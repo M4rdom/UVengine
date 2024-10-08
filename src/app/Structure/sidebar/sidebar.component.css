@@ -1,5 +1,5 @@
 .content-container {
-    padding-top: 64px; /* Esto asegura que el contenido no quede debajo del toolbar (ajusta según la altura de tu toolbar) */
+    padding-top: flex; /* Esto asegura que el contenido no quede debajo del toolbar (ajusta según la altura de tu toolbar) */
     height: calc(100% - 64px); /* Altura que queda después del toolbar */
 }
 
