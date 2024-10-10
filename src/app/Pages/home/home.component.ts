@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FooterComponent } from '../../Structure/footer/footer.component';
 
+import { CarouselComponent } from './Carousel/carousel.component';
+
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
@@ -17,6 +19,7 @@ import { RouterModule } from '@angular/router';
     MatButtonModule,
     MatDividerModule,
     MatGridListModule,
+    CarouselComponent,
     RouterModule,
     FooterComponent
 ],

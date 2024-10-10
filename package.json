@@ -27,6 +27,7 @@
     "angular-split": "^18.0.0-beta.1",
     "express": "^4.18.2",
     "monaco-editor": "^0.50.0",
+    "ngx-carousel-ease": "^0.1.5",
     "ngx-json-viewer": "^3.2.1",
     "ngx-monaco-editor-v2": "^18.1.0",
     "rxjs": "~7.8.0",
