@@ -13,7 +13,7 @@ import { ConfigurationService } from './Services/configuration.service';
 })
 
 export class AppComponent {
-  title = 'Frontend';
+  title = 'SPL_Automatic-generation-of-configuration-files';
   constructor(
     private configurationService: ConfigurationService
   ) {
