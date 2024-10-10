@@ -7,9 +7,12 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
 
 
 import { RouterModule } from '@angular/router';
+
+import { IconService } from '../../Services/icon.service';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +22,7 @@ import { RouterModule } from '@angular/router';
     MatButtonModule,
     MatDividerModule,
     MatGridListModule,
+    MatIconModule,
     CarouselComponent,
     RouterModule,
     FooterComponent
@@ -30,4 +34,7 @@ import { RouterModule } from '@angular/router';
 
 export class HomeComponent {
 
+  constructor(
+    private iconservice: IconService
+  ){}
 }

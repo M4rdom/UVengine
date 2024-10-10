@@ -1,16 +1,21 @@
 <div class="custom-div">
     <!--SPL Configuration Files Tool-->
     <div class="content">
-        <p>SPL</p>
-        SPL:Automatic generation of configuration files
+        
+        <h4>SPL: Automatic generation of configuration files</h4>
         <p></p>
+        <p>Generate Custom Files Using UVLS extension and Templates</p>
         <p></p>
         <div>
             <button mat-flat-button [routerLink]="'/Configuration'">
                 Get Started 
             </button>
             <button style="margin-left: 20px" mat-raised-button [routerLink]="'/Configuration'">
-                Give a Star
+                
+                <div style="display: flex; flex-direction: row;">
+                    Give a Star
+                    <mat-icon style="scale:1.2; margin-left: 15px;" svgIcon="github-star"></mat-icon>
+                </div>
             </button>
         </div>
 
@@ -18,20 +23,51 @@
 
 </div>
 
+<div class="features">
+    <div class="feature">
+      <h3>Create</h3>
+      <p>Create a new configuration using the UVLS extension by downloading a feature model file. See <a href="https://marketplace.visualstudio.com/items?itemName=caradhras.uvls-code">UVLS</a>.</p>
+      <p>Download an existing template or push a new one to the GitHub repository.</p>
+    </div>
+    
+    <div class="feature">
+      <h3>Generate</h3>
+      <p>Paste the configuration JSON and wait until the product is generated.</p>
+      <p>Feel free to modify and add the final touches to the product to suit your needs. (It might be mandatory depending on the template.)</p>
+    </div>
+    
+    <div class="feature">
+      <h3>Download</h3>
+      <p>Download the final product and customize the name and extension if desired </p>
+      <p>or just copy the content on the product and go</p> 
+    </div>
+  </div>
+
+
+<div class="content">
+    <div class="guide-mat-card">
+        <p></p>
+        How to create a configuration file Step by Step 
+        <app-carousel></app-carousel>
+    </div>
+
+</div>
 
 <div>
-    How to create a configuration file 
-    <app-carousel></app-carousel>
+    
+        <mat-grid-list cols="3" >
+            <mat-grid-tile>1</mat-grid-tile>
+            <mat-grid-tile>2</mat-grid-tile>
+            <mat-grid-tile>3</mat-grid-tile>
+          </mat-grid-list>
 
-    <mat-grid-list cols="3" >
-        <mat-grid-tile>1</mat-grid-tile>
-        <mat-grid-tile>2</mat-grid-tile>
-        <mat-grid-tile>3</mat-grid-tile>
-      </mat-grid-list>
-
-    <mat-divider></mat-divider>
-    Push a new Template to the Repository
+        <mat-divider></mat-divider>
+        Push a new Template to the Repository
+    
 </div>
+
+
+
 
 
 <app-footer></app-footer>

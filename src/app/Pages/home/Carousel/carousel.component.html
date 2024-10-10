@@ -1,34 +1,74 @@
 <carousel [slideToShow]="1" 
           [slideToScroll]="1" 
-          [infinite]="true"
           [slideWidth]="1" 
           [gapBetweenSlides]="1000" 
           [slideWidth]="500" 
-          [slideMaxWidth]="1000"
-          [autoPlay]="true"
-          [autoPlayInterval]="5000"
-          [autoPlayAtStart]="true">
+          [slideMaxWidth]="1000">
+            <!--[infinite]="true"-->
     <div class="carousel-slide">
         <mat-card class="mat-card">
-            Step 1 Select a Template
+
+
+
+
+            <mat-card class="title">
+                <div class="card-content">
+                  <button mat-flat-button disabled (click)="clickPreviousButton()">Previous</button>
+                  <span class="center-text">Select a Template</span>
+                  <button mat-flat-button (click)="clickNextButton()">Next</button>
+                </div>
+              </mat-card>
+
+
+        
             <img src="assets/gifs/choose.gif">
         </mat-card >
     </div>
     <div class="carousel-slide">
         <mat-card class="mat-card">
-            Step 2 Download the Template
+
+
+
+            <mat-card class="title">
+                <div class="card-content">
+                  <button mat-flat-button (click)="clickPreviousButton()">Previous</button>
+                  <span class="center-text">Download the Template</span>
+                  <button mat-flat-button (click)="clickNextButton()">Next</button>
+                </div>
+            </mat-card>
+
+           
             <img src="assets/gifs/download-template.gif">
         </mat-card>
     </div>
     <div class="carousel-slide">
         <mat-card class="mat-card">
-            Step 3 Generate Configuration using UVLS extension
+
+
+
+            <mat-card class="title">
+                <div class="card-content">
+                  <button mat-flat-button (click)="clickPreviousButton()">Previous</button>
+                  <span class="center-text">Generate Configuration using UVLS extension</span>
+                  <button mat-flat-button (click)="clickNextButton()">Next</button>
+                </div>
+              </mat-card>
             <img src="assets/gifs/generate-configuration.gif">
+
+
+            
         </mat-card >
     </div>
     <div class="carousel-slide">
         <mat-card class="mat-card">
-            Step 4 Generate file
+            <mat-card class="title">
+                <div class="card-content">
+                  <button mat-flat-button (click)="clickPreviousButton()">Previous</button>
+                  <span class="center-text">Generate the file</span>
+                  <button mat-flat-button disabled (click)="clickNextButton()">Next</button>
+                </div>
+            </mat-card>
+
             <img src="assets/gifs/generate-template.gif">
         </mat-card>
     </div>

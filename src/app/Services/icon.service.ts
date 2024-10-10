@@ -37,6 +37,7 @@ export class IconService {
       { name:'mongodb',path : 'assets/icons/mongodb.svg'},
       { name:'phpmyadmin',path : 'assets/icons/phpmyadmin.svg'},
       { name:'external-link',path : 'assets/icons/external-link.svg'},
+      { name:'github-star',path: 'assets/icons/github-star.svg'},
       
     ];
 

@@ -7,3 +7,25 @@
     padding: 10px;
     
 }
+
+.title {
+    margin: 10px;
+    padding: 10px;
+    font-family: Roboto;
+  }
+  
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.center-text {
+  text-align: center;
+  flex-grow: 1; /* Para que el texto pueda ocupar el centro de manera dinámica */
+  padding: 0 10px; /* Separar un poco del botón */
+}
+
+button {
+  flex-shrink: 0; /* Para que los botones no se encojan cuando la pantalla sea más pequeña */
+}
