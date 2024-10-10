@@ -32,6 +32,10 @@ export class IconService {
       { name:'copy-to-clipboard',path : 'assets/icons/copy-to-clipboard.svg'},
       { name:'download',path : 'assets/icons/download.svg'},
       { name:'paste-from-clipboard',path : 'assets/icons/paste-from-clipboard.svg'},
+      { name:'mysql',path : 'assets/icons/mysql.svg'},
+      { name:'postgresql',path : 'assets/icons/postgresql.svg'},
+      { name:'mongodb',path : 'assets/icons/mongodb.svg'},
+      { name:'phpmyadmin',path : 'assets/icons/phpmyadmin.svg'},
       
     ];
 
@@ -59,10 +63,16 @@ export class IconService {
       return 'icecream';
     }else if (!templateName) {
       return '';
+    }else if (templateName.toLowerCase().includes('mysql')) {
+      return 'mysql';
+    }else if (templateName.toLowerCase().includes('postgresql')) {
+      return 'postgresql';
+    }else if (templateName.toLowerCase().includes('mongodb')) {
+      return 'mongodb';
     }
     return 'unknowndice';
   }
-
+ //TODO FIX THIS BUG AND USE ONLY ONE FUNCTION
   iconCalculator1(templateName:string):string{
     if (templateName.toLowerCase().includes('docker')) {
       return 'docker';
@@ -76,6 +86,12 @@ export class IconService {
       return 'icecream';
     }else if (!templateName) {
       return '';
+    }else if (templateName.toLowerCase().includes('mysql')) {
+      return 'mysql';
+    }else if (templateName.toLowerCase().includes('postgresql')) {
+      return 'postgresql';
+    }else if (templateName.toLowerCase().includes('mongodb')) {
+      return 'mongodb';
     }
     return 'unknowndice';
   }
