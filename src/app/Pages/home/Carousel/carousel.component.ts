@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { MatButtonModule } from '@angular/material/button';
-import { CarouselModule,CarouselService } from 'ngx-carousel-ease';
+import { CarouselModule } from 'ngx-carousel-ease';
 
 import { MatCardModule } from '@angular/material/card';
 
@@ -18,14 +18,20 @@ import { MatCardModule } from '@angular/material/card';
 })
 export class CarouselComponent {
   constructor(
-    private carouselService: CarouselService
-  ) {}
+  ) {
 
-  ngOnInit() {
-      this.carouselService.onSlideChange.subscribe((slideAndID) => {
-        
-    });
   }
+
+  ngAfterViewInit() {
+    const previousButton = document.querySelector('button[aria-label="previous button navigation"]');
+    
+    (previousButton as HTMLElement).style.visibility = 'hidden';
+    
+    const nextButton = document.querySelector('button[aria-label="next button navigation"]');
+    
+    (nextButton as HTMLElement).style.visibility = 'hidden';
+  }
+
 
   clickPreviousButton() {
     const previousButton = document.querySelector('button[aria-label="previous button navigation"]');
