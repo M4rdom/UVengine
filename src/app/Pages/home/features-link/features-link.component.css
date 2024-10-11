@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    overflow: hidden; /* Ensure child elements respect the border radius */
+    margin:30px;
+    justify-content: center;
+    align-items: center;
+  }
+
+.img {
+    height: 20vh;
+}
+
