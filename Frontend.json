@@ -1,0 +1,16 @@
+{
+  "file": "dockerfile_fm.uvl",
+  "config": {
+    "Dockerfile": true,
+    "Frontend": true,
+    "Framework": true,
+    "Angular": true,
+    "Custom_Compiled_Version": true,
+    "Compiled_Version_Tag": "22",
+    "WebServer_Frontend": true,
+    "Nginx_WebServer_Frontend": true,
+    "Custom_nginx_config_file_Frontend": false,
+    "Custom_WebServer_Frontend_Version": true,
+    "WebServer_Frontend_Version_Tag": "1.27.2-alpine"
+  }
+}
