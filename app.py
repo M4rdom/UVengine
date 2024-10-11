@@ -51,19 +51,13 @@ def Resolver():
         mapping_model_path = CURRENT_PATH/'Templates'/'Templates-main'/template/version/'Mapping Model'/f'{template}_mapping_model.csv'
         template_path = CURRENT_PATH/'Templates'/'Templates-main'/template/version/"Jinja Templates"/f'{template}.jinja'
 
-        #print(f'Configuration path: {configuration_path}')
-        #print(f'Mapping model path: {mapping_model_path}')
-        #print(f'Template path: {template_path}')
-        # Verificar que los archivos existan
-
         if not template_path.exists():
             return f'Template file not found: {template_path}', 400
-        if not mapping_model_path.exists():
-            return f'Mapping model file not found: {mapping_model_path}', 400
 
         vengine = UVengine.VEngine()
         vengine.load_configuration(configuration_path)
-        vengine.load_mapping_model(mapping_model_path)
+        if mapping_model_path:
+            vengine.load_mapping_model(mapping_model_path)
         vengine.load_template(template_path)
 
         try:
