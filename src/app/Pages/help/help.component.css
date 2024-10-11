@@ -1,0 +1,8 @@
+.main-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    width: 50vw; /* Set width to 50% of the viewport width */
+    margin: 0 auto; /* Center the container horizontally */
+    height: 90vh; /* Optional: Set height to 100% of the viewport height to center vertically */
+  }
