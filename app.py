@@ -18,16 +18,16 @@ URL_FRONTEND = "http://localhost:4200"
 CURRENT_PATH = Path(__file__).resolve().parent
 
 
-@app.route('/uvegine-resolver/status')
+@app.route('/uvengine-resolver/status')
 def hello_world():
     return 'UVLEngine resolver is running'
 
-@app.route('/uvegine-resolver/update-repo')
+@app.route('/uvengine-resolver/update-repo')
 def update():
     download_and_extract_file()
     return 'Templates updated'
 
-@app.route('/uvegine-resolver/Resolver', methods=['POST'])
+@app.route('/uvengine-resolver/Resolver', methods=['POST'])
 def Resolver():
     try:
         
