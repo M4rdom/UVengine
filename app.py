@@ -75,7 +75,7 @@ def Resolver():
 
 
 def download_and_extract_file():
-    file_url = f'{URL_REPOSITORY_MANAGER}/download-repo'
+    file_url = f'{URL_REPOSITORY_MANAGER}/repository-manager/download-repo'
     local_filename = 'templates.zip'
     
     templates_dir = os.path.join(os.getcwd(), 'Templates')
