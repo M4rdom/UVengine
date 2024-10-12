@@ -35,7 +35,7 @@ RUN pip install --no-cache-dir  gunicorn==23.0.0
 # USER appuser
 
 # Run the application using Gunicorn
-CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:80", "app:app"]
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app:app"]
 
 # Make port 5000 available to the world outside this container
 EXPOSE 5000

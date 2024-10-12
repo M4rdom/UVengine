@@ -15,11 +15,16 @@ URL_UVENGINE_RESOLVER = "http://localhost:5001"
 URL_REPOSITORY_MANAGER = "http://localhost:5000"
 URL_FRONTEND = "http://localhost:4200"  
 
-@app.route('/respository-manager/status')
+
+@app.route('/repository-manager/')
+def index():
+    return 'Repository Manager is running'
+
+@app.route('/repository-manager/status')
 def status():
     return 'Repository Manager is running'
 
-@app.route('/respository-manager/templates', methods=['GET'])
+@app.route('/repository-manager/templates', methods=['GET'])
 def list_templates():
     try:
         # Petición sincrónica a la API de GitHub
@@ -38,7 +43,7 @@ def list_templates():
         return jsonify({'error': str(e)}), 500
 
 
-@app.route('/respository-manager/<directory_name>/Versions', methods=['GET'])
+@app.route('/repository-manager/<directory_name>/Versions', methods=['GET'])
 def list_versions(directory_name):
     try:
         response = requests.get(GITHUB_API_URL+f'/{directory_name}')
@@ -57,7 +62,7 @@ def list_versions(directory_name):
         return jsonify({'error': str(e)}), 500
 
 
-@app.route('/respository-manager/<directory_name>/<version>/FeatureModel', methods=['GET'])
+@app.route('/repository-manager/<directory_name>/<version>/FeatureModel', methods=['GET'])
 def download_uvl(directory_name, version):
     try:
         file_url = f'{GITHUB_RAW_API_URL}/{directory_name}/{version}/Feature Model/{directory_name}_fm.uvl'
@@ -75,7 +80,7 @@ def download_uvl(directory_name, version):
         return jsonify({'error': str(e)}), 500
 
 
-@app.route('/respository-manager/download-repo', methods=['GET'])
+@app.route('/repository-manager/download-repo', methods=['GET'])
 def download_repo():
     try:
         
