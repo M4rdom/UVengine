@@ -18,13 +18,15 @@ RUN adduser \
     --no-create-home \
     --uid "${UID}" \
     appuser
-# Install the application dependencies
-RUN --mount=type=cache,target=/root/.cache/pip \
-    python -m pip install --no-cache-dir -r requirements.txt
 
 WORKDIR /app
 
 COPY . /app
+# Install the application dependencies
+RUN --mount=type=cache,target=/root/.cache/pip \
+    python -m pip install --no-cache-dir -r requirements.txt
+
+
 # Install Gunicorn This is not recommended for production, requirements.txt should be used instead
 
 RUN pip install --no-cache-dir gunicorn==23.0.0
