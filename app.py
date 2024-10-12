@@ -12,22 +12,22 @@ app = Flask(__name__)
 CORS(app)
 
 URL_UVENGINE_RESOLVER = "http://localhost:5001"
-URL_REPOSITORY_MANAGER = "http://localhost:5000"
+URL_REPOSITORY_MANAGER = "http://repository-manager:5000"
 URL_FRONTEND = "http://localhost:4200"  
 
 CURRENT_PATH = Path(__file__).resolve().parent
 
 
-@app.route('/status')
+@app.route('/uvegine-resolver/status')
 def hello_world():
     return 'UVLEngine resolver is running'
 
-@app.route('/update-repo')
+@app.route('/uvegine-resolver/update-repo')
 def update():
     download_and_extract_file()
     return 'Templates updated'
 
-@app.route('/Resolver', methods=['POST'])
+@app.route('/uvegine-resolver/Resolver', methods=['POST'])
 def Resolver():
     try:
         
